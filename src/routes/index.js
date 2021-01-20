@@ -1,14 +1,15 @@
 var express = require('express');
+var app = express();
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express POST' });
+  res.append('Cache-Control', 'private')
+  res.render('index', { title: 'Express' });
 });
 
-router.post('/', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'https://7c61732d7f26.ngrok.io');
-  res.header("Access-Control-Allow-Method", "x-custom");
-  res.send('hello');
+router.get('/second', function(req, res, next) {
+  res.append('Cache-Control', ['no-store', 'max-age=0'])
+  res.render('second', { title: 'Second' });
 });
 
 module.exports = router;

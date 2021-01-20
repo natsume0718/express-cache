@@ -16,7 +16,17 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.static(path.join(__dirname, 'public'), {
+  setHeaders: (res, requestPath) => {
+    if (requestPath === path.join(__dirname, 'public/img/img.jpg')) {
+      res.append('Cache-Control', 'private')
+    }
+    if (requestPath === path.join(__dirname, 'public/img/img2.png')) {
+      res.append('Cache-Control', ['no-store', 'max-age=0'])
+    }
+  }
+}));
 
 app.use('/', indexRouter);
 
