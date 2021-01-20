@@ -1,3 +1,3 @@
 # About
 
-[課題 6](https://airtable.com/tblTnXBXFOYJ0J7lZ/viwyi8muFtWUlhNKG/recgTn9YMS58vKYE2)
+[課題 7](https://airtable.com/tblTnXBXFOYJ0J7lZ/viwyi8muFtWUlhNKG/recoJOv7Mr2ur4Vn1)
